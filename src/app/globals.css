@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+:root {
+  --font-sans: "Oxanium", Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-oxanium);
+  --swiper-theme-color: #fff !important;
+}
+
+.swiper-pagination-bullet{
+  background:  #e78585 !important;
+}
