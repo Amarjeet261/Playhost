@@ -7,6 +7,10 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation, Pagination } from "swiper/modules";
 import { useRef, useEffect, useState } from "react";
+import Image from "next/image";
+
+// ✅ Import proper Swiper type
+import { Swiper as SwiperType } from "swiper";
 
 interface RatingItem {
   rating: number;
@@ -18,7 +22,7 @@ interface RatingItem {
 export default function Rating() {
   const navigationPrevRef = useRef<HTMLDivElement | null>(null);
   const navigationNextRef = useRef<HTMLDivElement | null>(null);
-  const [swiperInstance, setSwiperInstance] = useState<any>(null);
+  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
 
   useEffect(() => {
     if (
@@ -26,8 +30,10 @@ export default function Rating() {
       navigationPrevRef.current &&
       navigationNextRef.current
     ) {
-      swiperInstance.params.navigation.prevEl = navigationPrevRef.current;
-      swiperInstance.params.navigation.nextEl = navigationNextRef.current;
+      swiperInstance.params.navigation = {
+        prevEl: navigationPrevRef.current,
+        nextEl: navigationNextRef.current,
+      };
       swiperInstance.navigation.destroy();
       swiperInstance.navigation.init();
       swiperInstance.navigation.update();
@@ -37,7 +43,7 @@ export default function Rating() {
   const RatingData: RatingItem[] = [
     {
       rating: 5,
-      para: "The flexibility Playhost offers is incredible. I can easily switch between game servers or even host multiple games on the same plan. It's a gamer's dream come true!",
+      para: "The flexibility Playhost offers is incredible. I can easily switch between game servers or even host multiple games on the same plan. It&apos;s a gamer's dream come true!",
       img: "/testimonial1.jpg",
       name: "Edward B.",
     },
@@ -74,22 +80,26 @@ export default function Rating() {
   ];
 
   return (
-    <section className="w-full h-screen bg-[#010314] flex flex-col items-center justify-center">
-      <ul className="w-[85%] flex flex-col text-white mb-6 px-[20px]">
-        <h3 className="w-fit border-white border rounded-[12px] px-[10px] py-[5px] text-[18px]">
+    <section className="w-full min-h-screen bg-[#010314] flex flex-col items-center justify-center py-10">
+      <div className="w-[85%] text-white mb-6 px-[20px]">
+        <h3 className="w-fit border border-white rounded-[12px] px-[10px] py-[5px] text-[18px]">
           Customer reviews
         </h3>
         <h2 className="text-[35px] font-sans">4.85 out of 5</h2>
-      </ul>
+      </div>
 
       <div className="w-[95%]">
-        <div className="w-full h-fit py-[20px] relative overflow-hidden flex justify-center items-center">
+        <div className="relative flex justify-center items-center py-[20px]">
           <Swiper
             onSwiper={setSwiperInstance}
             slidesPerView={3}
             spaceBetween={30}
             loop
             pagination={{ clickable: true }}
+            navigation={{
+              prevEl: navigationPrevRef.current,
+              nextEl: navigationNextRef.current,
+            }}
             modules={[Pagination, Navigation]}
             breakpoints={{
               320: { slidesPerView: 1, spaceBetween: 20 },
@@ -97,13 +107,13 @@ export default function Rating() {
               768: { slidesPerView: 2, spaceBetween: 40 },
               1024: { slidesPerView: 3, spaceBetween: 50 },
             }}
-            className="w-[86%] h-[70%]"
+            className="w-[86%] h-fit"
           >
-            {RatingData.map((move, idx) => (
+            {RatingData.map((item, idx) => (
               <SwiperSlide key={idx} className="flex justify-center pb-20">
-                <div className="flex flex-col border rounded-[10px] h-[300px] w-[380px] p-[10px] gap-[5px] max-sm:w-[280px]X">
+                <div className="flex flex-col border rounded-[10px] h-[300px] w-[380px] p-[10px] gap-[5px] max-sm:w-[280px]">
                   <div className="flex gap-2">
-                    {Array.from({ length: Math.floor(move.rating) }).map(
+                    {Array.from({ length: Math.floor(item.rating) }).map(
                       (_, ratingIndex) => (
                         <Star
                           key={ratingIndex}
@@ -111,22 +121,22 @@ export default function Rating() {
                         />
                       )
                     )}
-                    {move.rating % 1 !== 0 && (
+                    {item.rating % 1 !== 0 && (
                       <StarHalf className="text-yellow-500 w-[15px] fill-amber-500" />
                     )}
                   </div>
-                  <p className="text-gray-400 text-[18px]">{move.para}</p>
+                  <p className="text-gray-400 text-[18px]">{item.para}</p>
                   <div className="flex items-center gap-[10px] mt-2">
-                    <img
-                      src={move.img}
-                      alt={move.name}
-                      className="w-[40px] h-[40px] rounded-full object-cover"
+                    <Image
+                      src={item.img}
+                      alt={item.name}
+                      width={40}
+                      height={40}
+                      className="rounded-full object-cover"
                     />
-                    <ul>
-                      <li className="text-[16px] font-semibold text-white">
-                        {move.name}
-                      </li>
-                    </ul>
+                    <span className="text-[16px] font-semibold text-white">
+                      {item.name}
+                    </span>
                   </div>
                 </div>
               </SwiperSlide>
@@ -136,13 +146,13 @@ export default function Rating() {
           {/* Navigation Buttons */}
           <div
             ref={navigationPrevRef}
-            className="absolute w-[50px] h-[50px] flex justify-center items-center rounded-full top-[100px] left-[10px] cursor-pointer bg-white shadow z-50"
+            className="absolute w-[50px] h-[50px] flex justify-center items-center rounded-full top-1/2 left-[10px] transform -translate-y-1/2 cursor-pointer bg-white shadow z-50"
           >
             <ChevronLeft />
           </div>
           <div
             ref={navigationNextRef}
-            className="absolute w-[50px] h-[50px] flex justify-center items-center rounded-full top-[100px] right-[10px] cursor-pointer bg-white shadow z-50"
+            className="absolute w-[50px] h-[50px] flex justify-center items-center rounded-full top-1/2 right-[10px] transform -translate-y-1/2 cursor-pointer bg-white shadow z-50"
           >
             <ChevronRight />
           </div>

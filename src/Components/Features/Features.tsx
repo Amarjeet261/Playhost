@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Features() {
   interface data {
     icon: string;
@@ -39,7 +41,7 @@ export default function Features() {
         {featData.map((feat, idx) => {
           return (
             <div key={idx} className="w-[300px] h-[200px] flex flex-col justify-evenly text-white  px-[10px]">
-              <img src={feat.icon} alt="" className="h-[35px] w-[35px]" />
+              <Image src={feat.icon} alt="" className="h-[35px] w-[35px]" />
               <h2 className="text-[22px] --font-display">{feat.heading}</h2>
               <p className="">{feat.para}</p>
             </div>
