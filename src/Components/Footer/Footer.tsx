@@ -76,7 +76,7 @@ export default function Footer() {
             <button className="bg-purple-600 px-4 py-2 text-white">➜</button>
           </div>
           <p className="text-xs text-gray-500 mt-2">
-            Your email is safe with us. We don't spam.
+            Your email is safe with us. We don&apos;t spam.
           </p>
 
           <h2 className="mt-4 text-sm">Follow Us on</h2>
@@ -102,7 +102,7 @@ export default function Footer() {
         <p>&copy; 2025 - Playhost by Designesia</p>
         <div className="flex gap-6 ">
           <a href="#">Terms & Conditions</a>
-          <a href="#">Privacy Policy</a>
+          <a href="#">Privacy P olicy</a>
         </div>
       </div>
     </footer>

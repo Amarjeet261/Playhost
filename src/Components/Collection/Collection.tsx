@@ -3,8 +3,8 @@ import Link from "next/link";
 interface gameData {
   img: string;
   offer: string;
-  title: String;
-  subtitles: String;
+  title: string;
+  subtitles: string;
   price: string;
 }
 const game: gameData[] = [
@@ -89,7 +89,7 @@ export default function collection() {
           {game.map((play , idx) => {
             return(
               <div key={idx} className="h-[400px] relative w-[300px] rounded-[12px] text-white hover:border-4 hover:border-[#4F20C5] transition-all duration-200 group overflow-hidden">
-              <Image src={play.img} alt="g1"  fill className="h-full w-full rounded-[12px] object-cover" />
+              <Image src={play.img} alt="g1"  fill sizes="100%" className="h-full w-full rounded-[12px] object-cover" />
               <h6 className="absolute bg-[#E615AF] px-[10px] w-fit h-fit rounded-[8px] right-3 top-2">{play.offer}</h6>
 
               <ul className="absolute w-full h-[100px] py-[20px] -bottom-7 flex flex-col gap-3 group-hover:gap-2 justify-center group-hover:bottom-4 rounded-b-[12px] transition-all duration-500 pl-[20px]">

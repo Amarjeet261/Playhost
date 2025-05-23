@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -44,7 +45,7 @@ export default function Navbar() {
     >
       <div className="w-[85%] h-full flex justify-between items-center p-[5px]">
         {/* logo */}
-        <img src="/logo.png" alt="logo" className="w-[150px]" />
+       <Image src="/logo.png" alt="Playhost Logo" width={200} height={90} />
 
         {/* nav links */}
         <div className="flex gap-6 max-lg:hidden">
