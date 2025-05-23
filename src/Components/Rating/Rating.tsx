@@ -9,7 +9,6 @@ import { Navigation, Pagination } from "swiper/modules";
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 
-// ✅ Import proper Swiper type
 import { Swiper as SwiperType } from "swiper";
 import { RatingData } from "@/utils/Rating";
 
@@ -18,28 +17,30 @@ export default function Rating() {
   const navigationNextRef = useRef<HTMLDivElement | null>(null);
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
 
-  useEffect(() => {
-    if (
-      swiperInstance &&
-      navigationPrevRef.current &&
-      navigationNextRef.current
-    ) {
-      // Guard against undefined navigation module
-      if (
-        swiperInstance.params.navigation &&
-        typeof swiperInstance.navigation?.destroy === "function"
-      ) {
-        // Set new navigation elements
-        swiperInstance.params.navigation.prevEl = navigationPrevRef.current;
-        swiperInstance.params.navigation.nextEl = navigationNextRef.current;
+useEffect(() => {
+  if (
+    swiperInstance &&
+    navigationPrevRef.current &&
+    navigationNextRef.current
+  ) {
+    const navigation = swiperInstance.params.navigation;
 
-        // Reinitialize navigation safely
-        swiperInstance.navigation.destroy();
-        swiperInstance.navigation.init();
-        swiperInstance.navigation.update();
-      }
+    // ✅ Check if it's an object (not `true`)
+    if (
+      navigation &&
+      typeof navigation === "object" &&
+      swiperInstance.navigation
+    ) {
+      navigation.prevEl = navigationPrevRef.current;
+      navigation.nextEl = navigationNextRef.current;
+
+      swiperInstance.navigation.destroy();
+      swiperInstance.navigation.init();
+      swiperInstance.navigation.update();
     }
-  }, [swiperInstance]);
+  }
+}, [swiperInstance]);
+
 
   return (
     <section className="w-full min-h-screen bg-[#010314] flex flex-col items-center justify-center py-10">
@@ -58,10 +59,7 @@ export default function Rating() {
             spaceBetween={30}
             loop
             pagination={{ clickable: true }}
-            navigation={{
-              prevEl: navigationPrevRef.current,
-              nextEl: navigationNextRef.current,
-            }}
+            navigation={true} // ✅ Let Swiper handle navigation until refs are updated
             modules={[Pagination, Navigation]}
             breakpoints={{
               320: { slidesPerView: 1, spaceBetween: 20 },
