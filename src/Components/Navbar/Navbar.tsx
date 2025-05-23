@@ -57,7 +57,7 @@ export default function Navbar() {
 
               {/* dropdown on hover */}
               {data.submenu.length > 0 && (
-                <div className="absolute top-[100%] mt-2 w-48 bg-[#0e0e0e] shadow-lg rounded z-50 opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transition-all duration-200">
+                <div className="absolute top-[100%] mt-2 w-48 bg-[#0e0e0e] shadow-lg rounded z-50  group-hover:block group-hover:translate-y-1 transition-all duration-200 hidden">
                   {data.submenu.map((item, subIdx) => (
                     <Link
                       href="#"
