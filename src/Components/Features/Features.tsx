@@ -1,33 +1,7 @@
+import { featData } from "@/utils/Features";
 import Image from "next/image";
 
 export default function Features() {
-  interface data {
-    icon: string;
-    heading: string;
-    para: string;
-  }
-  const featData: data[] = [
-    {
-      icon: "/icon1.png",
-      heading: "Super Quick Setup",
-      para: "Dolor minim in pariatur in deserunt laboris eu pariatur labore excepteur cupidatat cupidatat duis dolor in.",
-    },
-    {
-      icon: "icon2.png",
-      heading: "Premium Hardware",
-      para: "Dolor minim in pariatur in deserunt laboris eu pariatur labore excepteur cupidatat cupidatat duis dolor in.",
-    },
-    {
-      icon: "icon3.png",
-      heading: "DDos Protection",
-      para: "Dolor minim in pariatur in deserunt laboris eu pariatur labore excepteur cupidatat cupidatat duis dolor in.",
-    },
-    {
-      icon: "icon.4.png",
-      heading: "Fast Support",
-      para: "Dolor minim in pariatur in deserunt laboris eu pariatur labore excepteur cupidatat cupidatat duis dolor in.",
-    },
-  ];
   return (
     <section className="min-h-[400px] w-full flex flex-col justify-center items-center bg-[#010314] ">
       {/* Heading */}
@@ -41,7 +15,7 @@ export default function Features() {
         {featData.map((feat, idx) => {
           return (
             <div key={idx} className="w-[300px] h-[200px] flex flex-col justify-evenly text-white  px-[10px]">
-              <Image src={feat.icon} alt="" className="h-[35px] w-[35px]" />
+              <Image src={feat.icon} alt="icon" width={35} height={35}  />
               <h2 className="text-[22px] --font-display">{feat.heading}</h2>
               <p className="">{feat.para}</p>
             </div>

@@ -1,17 +1,8 @@
+import { data } from "@/utils/Server";
 import Image from "next/image";
 import Link from "next/link";
-interface area {
-  location: string;
-}
-const data: area[] = [
-  { location: "London, England" },
-  { location: "Paris, France" },
-  { location: "Frankut, Germany" },
-  { location: "Amsterdam, Netherlands" },
-  { location: "Stockholm, Sweden" },
-  { location: "Helsinki, Finland" },
-  { location: "Los Angeles, USA" },
-];
+
+
 
 export default function Server() {
   return (

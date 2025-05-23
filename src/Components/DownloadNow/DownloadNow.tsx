@@ -1,24 +1,8 @@
+import { down, img } from "@/utils/DownloadNow";
 import Image from "next/image";
 
 export default function DownloadNow() {
-  const down = {
-    title: "Download now",
-    subtitle: "Manage your server from mobile device",
-    description:
-      "Enim sit laborum enim ut in excepteur aliqua consequat est ut aliquip nostrud sunt deserunt consequat fugiat adipisicing minim aliquip do adipisicing cupidatat esse ut irure incididunt ullamco dolor laboris anim ea do ut anim.",
-    appStoreImg: "/download2.webp",
-    playStoreImg: "/download-playstore.webp",
-    heroImg: "/man-with-phone.webp",
-  };
 
-  const img = [
-    "/visa.webp",
-    "/mastercard.webp",
-    "/paypal.webp",
-    "/skrill.webp",
-    "/jcb.webp",
-    "/american-express.webp",
-  ];
 
   return (
     <section className="w-full bg-[#010314] flex flex-col items-center justify-center">
