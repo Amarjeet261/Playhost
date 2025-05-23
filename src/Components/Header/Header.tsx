@@ -61,7 +61,7 @@ const headerData = [
 export default function Header() {
   return (
     <section className="relative w-full flex flex-col">
-      <Navbar />
+      <Navbar/>
       <div className="relative h-[730px] w-full">
         <Swiper
           slidesPerView={1}

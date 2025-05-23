@@ -27,9 +27,9 @@ export default function Features() {
     },
   ];
   return (
-    <section className="h-[400px] w-full flex flex-col justify-center items-center bg-[#010314] ">
+    <section className="min-h-[400px] w-full flex flex-col justify-center items-center bg-[#010314] ">
       {/* Heading */}
-      <ul className="flex text-white w-[85%] flex-col gap-[10px]">
+      <ul className="flex text-white w-[85%] flex-col gap-[10px] mt-[50px]">
         <p className="w-fit border-white border rounded-[12px] px-[10px] text-[18px]"> Incredibly features </p>
         <h2 className="text-[35px]  --font-display"> Premium Game Server</h2>
       </ul>

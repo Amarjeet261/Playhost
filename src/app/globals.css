@@ -10,3 +10,7 @@
 .swiper-pagination-bullet{
   background:  #e78585 !important;
 }
+
+html, body {
+  overflow-x: hidden;
+}

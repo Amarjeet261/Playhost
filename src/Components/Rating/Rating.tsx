@@ -94,7 +94,7 @@ export default function Rating() {
             breakpoints={{
               320: { slidesPerView: 1, spaceBetween: 20 },
               640: { slidesPerView: 2, spaceBetween: 20 },
-              768: { slidesPerView: 3, spaceBetween: 40 },
+              768: { slidesPerView: 2, spaceBetween: 40 },
               1024: { slidesPerView: 3, spaceBetween: 50 },
             }}
             className="w-[86%] h-[70%]"
@@ -136,13 +136,13 @@ export default function Rating() {
           {/* Navigation Buttons */}
           <div
             ref={navigationPrevRef}
-            className="absolute w-[50px] h-[50px] flex justify-center items-center rounded-full top-[160px] left-[30px] cursor-pointer bg-white shadow z-50"
+            className="absolute w-[50px] h-[50px] flex justify-center items-center rounded-full top-[100px] left-[10px] cursor-pointer bg-white shadow z-50"
           >
             <ChevronLeft />
           </div>
           <div
             ref={navigationNextRef}
-            className="absolute w-[50px] h-[50px] flex justify-center items-center rounded-full top-[160px] right-[50px] cursor-pointer bg-white shadow z-50"
+            className="absolute w-[50px] h-[50px] flex justify-center items-center rounded-full top-[100px] right-[10px] cursor-pointer bg-white shadow z-50"
           >
             <ChevronRight />
           </div>

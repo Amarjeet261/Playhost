@@ -11,7 +11,7 @@ export default function Unlock() {
         <div className="absolute inset-0 bg-[url('/unlock.webp')] bg-cover bg-center bg-fixed opacity-65 z-10" />
 
         {/* Left Container */}
-        <div className="relative z-20 h-full w-[50%]  flex flex-col justify-center gap-4 text-white px-[20px]">
+        <div className="relative z-20 h-full w-[50%]  flex flex-col justify-center gap-4 text-white px-[20px] max-sm:w-full ">
           <h3 className="w-fit border border-white rounded-xl px-4 py-1 text-sm"> Start your game </h3>
           <h2 className="text-2xl md:text-4xl font-serif leading-tight"> Unlock Your Gaming Full Potential
           </h2>
@@ -24,7 +24,7 @@ export default function Unlock() {
         </div>
 
         {/* Right Container */}
-        <div className=" absolute bottom-0 right-0 z-20">
+        <div className=" absolute bottom-0 right-0 z-20 max-sm:hidden">
           <Image src="/avatar.webp" alt="Avatar"  width={300}  height={500} className="object-contain"
           />
         </div>

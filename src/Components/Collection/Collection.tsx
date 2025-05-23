@@ -68,14 +68,14 @@ const game: gameData[] = [
 
 export default function collection() {
   return (
-    <section className="w-full h-[1100px] justify-center items-center flex bg-[url('/bg-GameCollection.webp')] bg-cover bg-center bg-fixed relative">
-      <div className="w-full h-full bg-[#0e0d0d7e] absolute "></div>
+    <section className="w-full min-h-[1100px] justify-center items-center flex bg-[url('/bg-GameCollection.webp')] bg-cover bg-center bg-fixed relative py-[20px]">
+      <div className="w-full h-full bg-[#0e0d0d7e] absolute z-0 "></div>
       <div className="w-[85%] flex  flex-wrap text-white px-[14px]">
         {/* game-heading */}
-        <p className="w-fit  border-white  border rounded-[12px] px-[10px] text-[18px]">
+        <p className="w-fit  border-white  border rounded-[12px] px-[10px] text-[18px] z-10">
           Most complete
         </p>
-        <ul className="flex justify-between w-full  text-white  gap-[10px]">
+        <ul className="flex justify-between w-full  text-white z-10 gap-[10px]">
           <h2 className="text-[35px] --font-display">Game Collection</h2>
           <Link href="#">
             <button className="font-serif w-fit px-4 py-2 border-2 border-[#4F20C5] text-white hover:bg-[#4F20C5] rounded-[15px] hover:shadow-[0_0_10px_#4F20C5] transition">

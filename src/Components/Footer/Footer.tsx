@@ -31,9 +31,9 @@ export default function Footer() {
   return (
     <footer className="w-full min-h-[340px] bg-[#0f0f1b] text-white flex flex-col py-5 justify-center items-center">
       {/* Main Sections */}
-      <div className="w-[1200px] flex justify-between gap-10">
+      <div className="w-[85%] flex flex-wrap p-2 justify-between gap-10 ">
         {/* Logo & Description */}
-        <div className="w-[280px]">
+        <div className="w-[280px] max-md:w-full">
           <div className="flex items-center gap-2 text-2xl font-semibold mb-4">
             <Image src="/logo.png" alt="Playhost Logo" width={200} height={90} />
           </div>
@@ -98,9 +98,9 @@ export default function Footer() {
       <hr className="w-full border-gray-700 mt-10 mb-6" />
 
       {/* Bottom Bar */}
-      <div className="w-[1200px] flex justify-between text-sm text-gray-400">
+      <div className="w-full flex justify-between text-sm text-gray-400 flex-wrap px-3">
         <p>&copy; 2025 - Playhost by Designesia</p>
-        <div className="flex gap-6">
+        <div className="flex gap-6 ">
           <a href="#">Terms & Conditions</a>
           <a href="#">Privacy Policy</a>
         </div>

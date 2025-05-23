@@ -38,7 +38,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`h-[70px] fixed top-0 z-[99] w-full flex justify-center items-center transition-colors duration-300 ${
+      className={`h-[70px] w-full fixed top-0 z-[99] flex justify-center items-center transition-colors duration-300  ${
         scrolled ? "bg-[#010314] shadow-md" : "bg-transparent"
       }`}
     >
@@ -47,7 +47,7 @@ export default function Navbar() {
         <img src="/logo.png" alt="logo" className="w-[150px]" />
 
         {/* nav links */}
-        <div className="flex gap-6">
+        <div className="flex gap-6 max-lg:hidden">
           {navData.map((data, idx) => (
             <div key={idx} className="relative group text-white cursor-pointer">
               <div className="flex items-center gap-1">
@@ -83,14 +83,15 @@ export default function Navbar() {
         </div>
 
         {/* get hosting button */}
-        <button>
-          <Link
-            href="#"
-            className="font-serif px-[10px] py-[7px] border-[#4F20C5] border-2 text-white hover:bg-[#4F20C5] rounded-[5px] hover:shadow-[0_0_10px_#4F20C5] cursor-pointer"
-          >
-            GET HOSTING
-          </Link>
-        </button>
+      <button>
+  <Link
+    href="#"
+    className="font-serif px-[10px] py-[7px] border-[#4F20C5] border-2 text-white hover:bg-[#4F20C5] rounded-[5px] hover:shadow-[0_0_10px_#4F20C5] cursor-pointer max-lg:text-sm"
+  >
+    GETHOSTING
+  </Link>
+</button>
+
       </div>
     </nav>
   );
