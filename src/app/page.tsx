@@ -20,6 +20,7 @@ export default function Home() {
     <FAQ/>
     <DownloadNow/>
     <Footer/>
+    
     </>
   );
 }

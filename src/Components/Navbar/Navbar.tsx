@@ -9,54 +9,53 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10); 
+      setScrolled(window.scrollY > 10);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-
-
   return (
     <nav
-      className={`h-[70px] w-full fixed top-0 z-[99] flex justify-center items-center transition-colors duration-300  ${
+      className={`h-[70px] w-full fixed top-0 z-[99] flex justify-center items-center transition-colors duration-300 ${
         scrolled ? "bg-[#010314] shadow-md" : "bg-transparent"
       }`}
     >
-      <div className="w-[85%] h-full flex justify-between items-center p-[5px]">
-        {/* logo */}
-       <Image src="/logo.png" alt="Playhost Logo" width={200} height={90} />
+      <section className="w-[85%] h-full flex justify-between items-center p-[5px]">
+        {/* Logo */}
+        <Image src="/logo.png" alt="Playhost Logo" width={200} height={90} />
 
-        {/* nav links */}
+        {/* Navigation Links */}
         <div className="flex gap-6 max-lg:hidden">
           {navData.map((data, idx) => (
             <div key={idx} className="relative group text-white cursor-pointer">
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1 h-[60px]">
                 {data.anker}
-                {<ChevronDown size={16} className="text-[#5627D9]" />}
+                {data.submenu.length > 0 && (
+                  <ChevronDown size={16} className="text-[#5627D9]" />
+                )}
               </div>
 
-              {/* dropdown on hover */}
+              {/* Dropdown Menu */}
               {data.submenu.length > 0 && (
-                <div className="absolute top-[100%] mt-2 w-48 bg-[#0e0e0e] shadow-lg rounded z-50  group-hover:block group-hover:translate-y-1 transition-all duration-200 hidden">
+                <div className="absolute top-11 mt-2 w-48 bg-[#0e0e0e] shadow-lg rounded z-50 group-hover:block group-hover:translate-y-1 transition-all duration-200 hidden">
                   {data.submenu.map((item, subIdx) => (
                     <Link
-                      href="#"
                       key={subIdx}
+                      href={item.href}
                       className="block px-4 py-2 text-sm hover:bg-[#1e1e1e] text-white"
                     >
                       {subIdx === 5 && data.anker === "Game Servers" ? (
                         <span className="flex justify-between items-center">
-                          {item}
-                          <span className="text-[10px] bg-purple-600 text-white px-1 py-[1px] rounded font-bold">
+                          {item.label}
+                          <span className="text-[10px] bg-purple-600 text-white px-1 py-[1px] rounded font-bold ml-2">
                             NEW
                           </span>
                         </span>
                       ) : (
-                        item
+                        item.label
                       )}
                     </Link>
                   ))}
@@ -66,17 +65,16 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* get hosting button */}
-      <button>
-  <Link
-    href="#"
-    className="font-serif px-[10px] py-[7px] border-[#4F20C5] border-2 text-white hover:bg-[#4F20C5] rounded-[5px] hover:shadow-[0_0_10px_#4F20C5] cursor-pointer max-lg:text-sm"
-  >
-    GETHOSTING
-  </Link>
-</button>
-
-      </div>
+        {/* Get Hosting Button */}
+        <button>
+          <Link
+            href="#"
+            className="font-serif px-[10px] py-[7px] border-[#4F20C5] border-2 text-white hover:bg-[#4F20C5] rounded-[5px] hover:shadow-[0_0_10px_#4F20C5] cursor-pointer max-lg:text-sm"
+          >
+            GETHOSTING
+          </Link>
+        </button>
+      </section>
     </nav>
   );
 }
