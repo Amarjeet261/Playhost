@@ -1,7 +1,7 @@
 "use client";
 import { formFields } from "@/utils/Register";
 import Image from "next/image";
-
+import React from "react";
 
 export function RegisterForm() {
   return (
