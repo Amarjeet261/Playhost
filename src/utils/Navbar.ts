@@ -1,5 +1,5 @@
 export const navData = [
-  { anker: "Home", submenu: [], herf: "#" },
+  { anker: "Home", submenu: [], link: "/" },
   {
     anker: "Game Servers",
     submenu: [
@@ -10,7 +10,7 @@ export const navData = [
       { label: "Pricing Table Three", href: "#" },
       { label: "Pricing Table Four", href: "#" },
     ],
-    herf: "#"
+    link: "#"
   },
   {
     anker: "Games",
@@ -19,7 +19,7 @@ export const navData = [
       { label: "Adventure", href: "#" },
       { label: "Survival", href: "#" },
     ],
-    herf: "#"
+    link: "#"
   },
   {
     anker: "Locations",
@@ -28,32 +28,32 @@ export const navData = [
       { label: "Europe", href: "#" },
       { label: "Asia", href: "#" },
     ],
-    herf: "#"
+    link: "#"
   },
   {
     anker: "Support",
     submenu: [
-      { label: "Knowledgebase", href: "#" },
-      { label: "FAQ", href: "#" },
-      { label: "Contact Us", href: "#" },
+      { label: "Knowledgebase", href: "/knowledgebase" },
+      { label: "FAQ", href: "/supportfaq" },
+      { label: "Contact Us", href: "/contact" },
     ],
-    herf: "/know"
+    link: "#"
   },
   {
     anker: "Company",
     submenu: [
-      { label: "About Us", href: "#" },
-      { label: "Affliates", href: "#" },
-      { label: "News", href: "#" },
+      { label: "About Us", href: "/about" },
+      { label: "Affliates", href: "/affliate" },
+      { label: "News", href: "/news" },
     ],
-    herf: "#"
+    link: "#"
   },
   {
     anker: "More Pages",
     submenu: [
-      { label: "Login", href: "#" },
-      { label: "Register", href: "#" },
+      { label: "Login", href: "/login" },
+      { label: "Register", href: "/register" },
     ],
-    herf: "#"
+    link: "#"
   },
 ];

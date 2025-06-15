@@ -17,30 +17,28 @@ export default function Rating() {
   const navigationNextRef = useRef<HTMLDivElement | null>(null);
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
 
-useEffect(() => {
-  if (
-    swiperInstance &&
-    navigationPrevRef.current &&
-    navigationNextRef.current
-  ) {
-    const navigation = swiperInstance.params.navigation;
-
-    // ✅ Check if it's an object (not `true`)
+  useEffect(() => {
     if (
-      navigation &&
-      typeof navigation === "object" &&
-      swiperInstance.navigation
+      swiperInstance &&
+      navigationPrevRef.current &&
+      navigationNextRef.current
     ) {
-      navigation.prevEl = navigationPrevRef.current;
-      navigation.nextEl = navigationNextRef.current;
+      const navigation = swiperInstance.params.navigation;
 
-      swiperInstance.navigation.destroy();
-      swiperInstance.navigation.init();
-      swiperInstance.navigation.update();
+      if (
+        navigation &&
+        typeof navigation === "object" &&
+        swiperInstance.navigation
+      ) {
+        navigation.prevEl = navigationPrevRef.current;
+        navigation.nextEl = navigationNextRef.current;
+
+        swiperInstance.navigation.destroy();
+        swiperInstance.navigation.init();
+        swiperInstance.navigation.update();
+      }
     }
-  }
-}, [swiperInstance]);
-
+  }, [swiperInstance]);
 
   return (
     <section className="w-full min-h-screen bg-[#010314] flex flex-col items-center justify-center py-10">
@@ -59,7 +57,10 @@ useEffect(() => {
             spaceBetween={30}
             loop
             pagination={{ clickable: true }}
-            navigation={true} // ✅ Let Swiper handle navigation until refs are updated
+            navigation={{
+              prevEl: navigationPrevRef.current,
+              nextEl: navigationNextRef.current,
+            }}
             modules={[Pagination, Navigation]}
             breakpoints={{
               320: { slidesPerView: 1, spaceBetween: 20 },
@@ -103,7 +104,7 @@ useEffect(() => {
             ))}
           </Swiper>
 
-          {/* Navigation Buttons */}
+          {/* Custom Navigation Buttons */}
           <div
             ref={navigationPrevRef}
             className="absolute w-[50px] h-[50px] flex justify-center items-center rounded-full top-1/2 left-[10px] transform -translate-y-1/2 cursor-pointer bg-white shadow z-50"
