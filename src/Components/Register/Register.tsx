@@ -1,7 +1,7 @@
 "use client";
 import { formFields } from "@/utils/Register";
 import Image from "next/image";
-import React from "react";
+
 
 export function RegisterForm() {
   return (
@@ -14,7 +14,7 @@ export function RegisterForm() {
     >
       <div className="min-h-[650px] bg-[#010314] text-white p-10 max-md:p-6 max-sm:p-4 rounded-2xl shadow-2xl w-full max-w-3xl mt-[70px] ">
         <h2 className="text-2xl max-md:text-xl max-sm:text-lg font-bold mb-2">
-          Don't have an account? Register now.
+          Don&apos;t have an account? Register now.
         </h2>
         <p className="text-sm max-md:text-xs mb-8 text-gray-400">
           Welcome to Plahost. We&apos;re excited to have you on board. By creating
