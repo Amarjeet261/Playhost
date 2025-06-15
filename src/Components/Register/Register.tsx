@@ -17,8 +17,8 @@ export function RegisterForm() {
           Don't have an account? Register now.
         </h2>
         <p className="text-sm max-md:text-xs mb-8 text-gray-400">
-          Welcome to Plahost. We're excited to have you on board. By creating
-          an account with us, you'll gain access to a range of benefits and
+          Welcome to Plahost. We&apos;re excited to have you on board. By creating
+          an account with us, you&apos;ll gain access to a range of benefits and
           convenient features that will enhance your car rental experience.
         </p>
 
